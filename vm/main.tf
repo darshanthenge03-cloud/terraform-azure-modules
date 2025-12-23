@@ -14,7 +14,16 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = var.subnet_address_prefix
 }
 
-# Network Interface
+# Public IP
+resource "azurerm_public_ip" "pip" {
+  name                = "${var.vm_name}-pip"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+# Network Interface (NIC) with Public IP attached
 resource "azurerm_network_interface" "nic" {
   name                = "${var.vm_name}-nic"
   location            = var.location
@@ -24,6 +33,7 @@ resource "azurerm_network_interface" "nic" {
     name                          = "ipconfig1"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.pip.id
   }
 }
 
