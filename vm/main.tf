@@ -14,6 +14,25 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = var.subnet_address_prefix
 }
 
+# Network Security Group (NSG)
+resource "azurerm_network_security_group" "nsg" {
+  name                = "${var.vm_name}-nsg"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  security_rule {
+    name                       = "Allow-SSH"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
 # Public IP
 resource "azurerm_public_ip" "pip" {
   name                = "${var.vm_name}-pip"
@@ -23,7 +42,7 @@ resource "azurerm_public_ip" "pip" {
   sku                 = "Standard"
 }
 
-# Network Interface (NIC) with Public IP attached
+# Network Interface (NIC) with NSG + Public IP
 resource "azurerm_network_interface" "nic" {
   name                = "${var.vm_name}-nic"
   location            = var.location
@@ -35,6 +54,12 @@ resource "azurerm_network_interface" "nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.pip.id
   }
+}
+
+# Attach NSG to NIC
+resource "azurerm_network_interface_security_group_association" "nsg_assoc" {
+  network_interface_id      = azurerm_network_interface.nic.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
 # Linux Virtual Machine
