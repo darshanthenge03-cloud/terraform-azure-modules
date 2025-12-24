@@ -22,3 +22,12 @@ variable "private_subnets" {
   type = map(string)
 }
 
+variable "enable_bastion" {
+  type    = bool
+  default = false
+}
+
+variable "bastion_subnet_prefix" {
+  type    = string
+  default = "10.0.100.0/26"
+}
