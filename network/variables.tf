@@ -21,3 +21,4 @@ variable "public_subnets" {
 variable "private_subnets" {
   type = map(string)
 }
+
