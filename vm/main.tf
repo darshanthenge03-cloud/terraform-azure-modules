@@ -52,6 +52,10 @@ resource "azurerm_linux_virtual_machine" "vm" {
   resource_group_name = var.resource_group_name
   size                = var.vm_size
 
+identity {
+  type = "SystemAssigned"
+}
+
   admin_username = var.admin_username
 
   admin_ssh_key {
