@@ -22,3 +22,10 @@ resource "azurerm_subnet" "private" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [each.value]
 }
+
+resource "azurerm_subnet" "bastion" {
+  name                 = "AzureBastionSubnet"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = [var.bastion_subnet_cidr]
+}

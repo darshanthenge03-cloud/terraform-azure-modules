@@ -17,3 +17,7 @@ variable "public_subnets" {
 variable "private_subnets" {
   type = map(string)
 }
+
+variable "bastion_subnet_cidr" {
+  type = string
+}

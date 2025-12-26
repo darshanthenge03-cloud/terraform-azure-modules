@@ -13,3 +13,7 @@ output "private_subnet_ids" {
     for k, s in azurerm_subnet.private : k => s.id
   }
 }
+
+output "bastion_subnet_id" {
+  value = azurerm_subnet.bastion.id
+}
