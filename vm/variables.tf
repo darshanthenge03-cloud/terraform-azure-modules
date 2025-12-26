@@ -3,7 +3,9 @@ variable "location" {}
 variable "resource_group_name" {}
 variable "vm_size" {}
 variable "admin_username" {}
-variable "ssh_public_key" {}
+variable "ssh_public_key" {
+  type = string
+}
 
 variable "vnet_address_space" {
   default = ["10.0.0.0/16"]
