@@ -17,3 +17,11 @@ output "private_subnet_ids" {
 output "bastion_subnet_id" {
   value = azurerm_subnet.bastion.id
 }
+
+output "public_nsg_id" {
+  value = azurerm_network_security_group.public.id
+}
+
+output "private_nsg_id" {
+  value = azurerm_network_security_group.private.id
+}
