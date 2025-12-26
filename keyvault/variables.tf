@@ -9,3 +9,11 @@ variable "location" {
 variable "resource_group_name" {
   type = string
 }
+
+variable "access_policies" {
+  type = list(object({
+    object_id = string
+    permissions = list(string)
+  }))
+  default = []
+}
