@@ -57,11 +57,8 @@ identity {
 }
 
   admin_username = var.admin_username
-
-  admin_ssh_key {
-    username   = var.admin_username
-    public_key = var.ssh_public_key
-  }
+  
+  disable_password_authentication = true
 
   network_interface_ids = [
     azurerm_network_interface.nic.id
