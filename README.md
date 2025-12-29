@@ -1,63 +1,121 @@
 # Terraform Azure Platform Modules
 
-This repository contains reusable, production-grade Terraform modules used to deploy secure Azure infrastructure across multiple customers and environments.
+This repository contains reusable, production-grade Terraform modules for deploying secure Azure infrastructure across multiple customers and environments.
 
-## Design Philosophy
-- Platform-first design
-- Reusable, versioned modules
+The goal of this repository is to provide a standardized, secure, and scalable platform layer that can be consumed by customer-specific Terraform repositories.
+
+---
+
+## Design Principles
+
+- Platform-first architecture
+- Reusable and versioned modules
 - Secure-by-default configurations
 - Clear separation of concerns
 - No environment-specific logic
+- No direct deployments from this repository
+
+---
+
+## Repository Structure
+
+terraform-azure-modules/
+├── network/
+├── vm/
+├── keyvault/
+├── bastion/
+├── backup/
+└── README.md
+
+
+Each folder represents a standalone Terraform module with a single responsibility.
+
+---
 
 ## Available Modules
 
-### Network
+### Network Module
 Creates foundational networking components:
-- Virtual Network
-- Public & Private subnets
+- Virtual Network (VNet)
+- Public and private subnets
 - Azure Bastion subnet
-- Network Security Groups
+- Network Security Groups (NSGs)
+- NSG to subnet associations
 
-### VM
-Creates Linux or Windows Virtual Machines:
-- Multi-OS support (Linux / Windows)
+This module provides the base networking layer required for all workloads.
+
+---
+
+### VM Module
+Creates Azure Virtual Machines with multi-OS support:
+- Linux and Windows support
 - Parameterized OS images
-- System-assigned Managed Identity
-- No public IPs
+- No public IP addresses
+- System-assigned Managed Identity enabled by default
 - Secure authentication defaults
 
-### KeyVault
-Creates Azure Key Vault:
-- Centralized secret storage
+The VM module represents a compute capability, not a specific operating system.
+
+---
+
+### Key Vault Module
+Creates Azure Key Vault for centralized secret management:
+- Secure secret storage
 - Identity-based access
-- No hardcoded secrets
+- No hardcoded credentials
+- Designed to work with Managed Identities
 
-### Bastion
-Creates Azure Bastion:
-- Secure VM access
-- No inbound ports
-- No public VM IPs
+Secrets are accessed securely without embedding credentials in code.
 
-### Backup
-Creates Azure Backup configuration:
+---
+
+### Bastion Module
+Creates Azure Bastion for secure administrative access:
+- Bastion host with required public IP
+- No inbound ports to virtual machines
+- SSH/RDP access through Azure portal only
+
+This module eliminates the need for public VM exposure.
+
+---
+
+### Backup Module
+Creates standardized Azure Backup configuration:
 - Recovery Services Vault
 - Daily VM backup policy
-- 5-day instant snapshot restore
+- 5-day instant snapshot restore enabled
 - VM protection attachment
 
+Backup configuration is enforced at the platform level.
+
+---
+
 ## Security Model
-- Zero public VM exposure
-- Bastion-only access
-- Managed Identity for Azure access
-- Secrets stored only in Key Vault
-- Centralized backup enforcement
+
+- Virtual machines have no public IPs
+- Access is restricted to Azure Bastion
+- Managed Identity used for Azure service access
+- Secrets stored centrally in Key Vault
+- Backups enabled by default with instant restore
+
+---
 
 ## Usage
-These modules are consumed by customer-specific repositories.  
-No Azure resources should be created directly in customer repos.
+
+This repository is not deployed directly.
+
+It is consumed by customer-specific Terraform repositories that:
+- Configure environments
+- Wire modules together
+- Handle CI/CD and state management
+
+---
 
 ## Versioning Strategy
+
 Modules are versioned using Git tags:
-```bash
+
 v1.0.0
 v1.1.0
+
+Customer repositories should pin module versions to ensure stability.
