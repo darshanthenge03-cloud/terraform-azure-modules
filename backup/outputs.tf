@@ -5,3 +5,7 @@ output "vault_id" {
 output "backup_policy_id" {
   value = azurerm_backup_policy_vm.daily.id
 }
+
+output "protected_vm_id" {
+  value = azurerm_backup_protected_vm.vm.id
+}

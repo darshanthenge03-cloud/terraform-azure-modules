@@ -14,3 +14,7 @@ variable "retention_days" {
   type    = number
   default = 7
 }
+
+variable "vm_id" {
+  type = string
+}
