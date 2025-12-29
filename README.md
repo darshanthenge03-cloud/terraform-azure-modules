@@ -4,7 +4,6 @@ This repository contains reusable, production-grade Terraform modules for deploy
 
 The goal of this repository is to provide a standardized, secure, and scalable platform layer that can be consumed by customer-specific Terraform repositories.
 
----
 
 ## Design Principles
 
@@ -15,7 +14,6 @@ The goal of this repository is to provide a standardized, secure, and scalable p
 - No environment-specific logic
 - No direct deployments from this repository
 
----
 
 ## Repository Structure
 
@@ -30,7 +28,6 @@ terraform-azure-modules/
 
 Each folder represents a standalone Terraform module with a single responsibility.
 
----
 
 ## Available Modules
 
@@ -44,7 +41,6 @@ Creates foundational networking components:
 
 This module provides the base networking layer required for all workloads.
 
----
 
 ### VM Module
 Creates Azure Virtual Machines with multi-OS support:
@@ -56,7 +52,6 @@ Creates Azure Virtual Machines with multi-OS support:
 
 The VM module represents a compute capability, not a specific operating system.
 
----
 
 ### Key Vault Module
 Creates Azure Key Vault for centralized secret management:
@@ -67,7 +62,6 @@ Creates Azure Key Vault for centralized secret management:
 
 Secrets are accessed securely without embedding credentials in code.
 
----
 
 ### Bastion Module
 Creates Azure Bastion for secure administrative access:
@@ -77,7 +71,6 @@ Creates Azure Bastion for secure administrative access:
 
 This module eliminates the need for public VM exposure.
 
----
 
 ### Backup Module
 Creates standardized Azure Backup configuration:
@@ -88,7 +81,6 @@ Creates standardized Azure Backup configuration:
 
 Backup configuration is enforced at the platform level.
 
----
 
 ## Security Model
 
@@ -98,7 +90,6 @@ Backup configuration is enforced at the platform level.
 - Secrets stored centrally in Key Vault
 - Backups enabled by default with instant restore
 
----
 
 ## Usage
 
@@ -109,7 +100,6 @@ It is consumed by customer-specific Terraform repositories that:
 - Wire modules together
 - Handle CI/CD and state management
 
----
 
 ## Versioning Strategy
 
