@@ -115,7 +115,7 @@ It is consumed by customer-specific Terraform repositories that:
 
 Modules are versioned using Git tags:
 
-v1.0.0
+v1.0.0,
 v1.1.0
 
 Customer repositories should pin module versions to ensure stability.
