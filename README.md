@@ -3,7 +3,6 @@
 This repository contains reusable, production-grade Terraform modules used to deploy secure Azure infrastructure across multiple customers and environments.
 
 ## Design Philosophy
-
 - Platform-first design
 - Reusable, versioned modules
 - Secure-by-default configurations
@@ -27,19 +26,19 @@ Creates Linux or Windows Virtual Machines:
 - No public IPs
 - Secure authentication defaults
 
-### keyvault
+### KeyVault
 Creates Azure Key Vault:
 - Centralized secret storage
 - Identity-based access
 - No hardcoded secrets
 
-### bastion
+### Bastion
 Creates Azure Bastion:
 - Secure VM access
 - No inbound ports
 - No public VM IPs
 
-### backup
+### Backup
 Creates Azure Backup configuration:
 - Recovery Services Vault
 - Daily VM backup policy
@@ -47,7 +46,6 @@ Creates Azure Backup configuration:
 - VM protection attachment
 
 ## Security Model
-
 - Zero public VM exposure
 - Bastion-only access
 - Managed Identity for Azure access
@@ -55,12 +53,10 @@ Creates Azure Backup configuration:
 - Centralized backup enforcement
 
 ## Usage
-
 These modules are consumed by customer-specific repositories.  
 No Azure resources should be created directly in customer repos.
 
 ## Versioning Strategy
-
 Modules are versioned using Git tags:
 ```bash
 v1.0.0
