@@ -26,11 +26,6 @@ variable "os_type" {
   }
 }
 
-variable "os_type" {
-  type        = string
-  description = "linux or windows"
-}
-
 variable "os_flavor" {
   type = string
 
