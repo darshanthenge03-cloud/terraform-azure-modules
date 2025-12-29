@@ -26,13 +26,23 @@ variable "os_type" {
   }
 }
 
-variable "image" {
-  type = object({
-    publisher = string
-    offer     = string
-    sku       = string
-    version   = string
-  })
+variable "os_type" {
+  type        = string
+  description = "linux or windows"
+}
+
+variable "os_flavor" {
+  type = string
+
+  validation {
+    condition = (
+      var.os_type == "linux" && contains(keys(local.linux_images), var.os_flavor)
+    ) || (
+      var.os_type == "windows" && contains(keys(local.windows_images), var.os_flavor)
+    )
+
+    error_message = "Invalid os_flavor for selected os_type."
+  }
 }
 
 variable "admin_username" {

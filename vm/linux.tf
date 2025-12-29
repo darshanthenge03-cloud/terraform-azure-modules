@@ -24,11 +24,11 @@ resource "azurerm_linux_virtual_machine" "linux" {
   }
 
   source_image_reference {
-    publisher = var.image.publisher
-    offer     = var.image.offer
-    sku       = var.image.sku
-    version   = var.image.version
-  }
+  publisher = local.selected_image.publisher
+  offer     = local.selected_image.offer
+  sku       = local.selected_image.sku
+  version   = local.selected_image.version
+}
 
   os_disk {
     caching              = "ReadWrite"
