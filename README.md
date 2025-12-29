@@ -12,14 +12,14 @@ This repository contains reusable, production-grade Terraform modules used to de
 
 ## Available Modules
 
-### network
+### Network
 Creates foundational networking components:
 - Virtual Network
 - Public & Private subnets
 - Azure Bastion subnet
 - Network Security Groups
 
-### vm
+### VM
 Creates Linux or Windows Virtual Machines:
 - Multi-OS support (Linux / Windows)
 - Parameterized OS images
