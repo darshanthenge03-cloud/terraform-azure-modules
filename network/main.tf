@@ -62,3 +62,4 @@ resource "azurerm_subnet" "gateway" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [var.gateway_subnet_cidr]
 }
+

@@ -24,5 +24,5 @@ variable "bastion_subnet_cidr" {
 
 variable "gateway_subnet_cidr" {
   type        = string
-  description = "CIDR range for Azure VPN Gateway subnet (GatewaySubnet)"
+  description = "CIDR block for Azure VPN GatewaySubnet"
 }
