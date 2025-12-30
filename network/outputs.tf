@@ -25,3 +25,7 @@ output "public_nsg_id" {
 output "private_nsg_id" {
   value = azurerm_network_security_group.private.id
 }
+
+output "gateway_subnet_id" {
+  value = azurerm_subnet.gateway.id
+}

@@ -21,3 +21,8 @@ variable "private_subnets" {
 variable "bastion_subnet_cidr" {
   type = string
 }
+
+variable "gateway_subnet_cidr" {
+  type        = string
+  description = "CIDR range for Azure VPN Gateway subnet (GatewaySubnet)"
+}

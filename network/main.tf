@@ -55,3 +55,10 @@ resource "azurerm_subnet_network_security_group_association" "private" {
   subnet_id                 = each.value.id
   network_security_group_id = azurerm_network_security_group.private.id
 }
+
+resource "azurerm_subnet" "gateway" {
+  name                 = "GatewaySubnet"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = [var.gateway_subnet_cidr]
+}
