@@ -4,7 +4,7 @@ resource "azurerm_public_ip" "vpn" {
   resource_group_name = var.resource_group_name
 
   allocation_method = "Dynamic"
-  sku               = "Basic"
+  sku               = "Standard"
 }
 
 resource "azurerm_virtual_network_gateway" "this" {
