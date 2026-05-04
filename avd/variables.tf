@@ -4,6 +4,25 @@ variable "workspace_name" {}
 variable "resource_group_name" {}
 variable "location" {}
 
+variable "subnet_id" {}
+
+variable "session_host_count" {
+  default = 1
+}
+
+variable "vm_name_prefix" {
+  default = "avd-vm"
+}
+
+variable "vm_size" {
+  default = "Standard_D4s_v5"
+}
+
+variable "admin_username" {}
+variable "admin_password" {
+  sensitive = true
+}
+
 variable "host_pool_type" {
   default = "Pooled"
 }
@@ -17,6 +36,6 @@ variable "max_sessions" {
 }
 
 variable "tags" {
-  type = map(string)
+  type    = map(string)
   default = {}
 }
