@@ -35,7 +35,7 @@ This module creates:
 
 ```hcl
 module "network" {
-  source = "git::https://github.com/darshanthenge03-cloud/terraform-azure-modules.git//network?ref=v1.0.0"
+  source = "git::https://github.com/darshanthenge03-cloud/terraform-azure-modules.git//network"
 
   resource_group_name = "rg-network-dev"
   location            = "Central India"
