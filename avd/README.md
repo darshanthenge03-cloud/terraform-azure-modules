@@ -6,7 +6,7 @@ Reusable Terraform module to deploy Azure Virtual Desktop (AVD).
 
 ```hcl
 module "avd" {
-  source = "git::https://github.com/darshanthenge03-cloud/terraform-azure-modules.git//avd?ref=v1.0.0"
+  source = "git::https://github.com/darshanthenge03-cloud/terraform-azure-modules.git//avd"
 
   host_pool_name      = "avd-hostpool-dev"
   app_group_name      = "avd-dag-dev"
