@@ -27,7 +27,12 @@ resource "azurerm_network_security_group" "this" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "this" {
-  for_each = var.subnets
+
+  for_each = {
+    for k, v in var.subnets :
+    k => v
+    if k != "GatewaySubnet"
+  }
 
   subnet_id = azurerm_subnet.this[each.key].id
 
