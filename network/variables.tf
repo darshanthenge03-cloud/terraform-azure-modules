@@ -6,23 +6,19 @@ variable "location" {
   type = string
 }
 
+variable "vnet_name" {
+  type = string
+}
+
 variable "vnet_cidr" {
   type = string
 }
 
-variable "public_subnets" {
+variable "subnets" {
   type = map(string)
 }
 
-variable "private_subnets" {
-  type = map(string)
-}
-
-variable "bastion_subnet_cidr" {
-  type = string
-}
-
-variable "gateway_subnet_cidr" {
-  type        = string
-  description = "CIDR block for Azure VPN GatewaySubnet"
+variable "tags" {
+  type    = map(string)
+  default = {}
 }
