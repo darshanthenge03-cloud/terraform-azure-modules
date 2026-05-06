@@ -85,6 +85,9 @@ resource "azurerm_network_interface" "nic" {
 resource "azurerm_windows_virtual_machine" "vm" {
   count               = var.session_host_count
   name                = "${var.vm_name_prefix}-${format("%02d", count.index + 1)}"
+
+  computer_name       = "avd${count.index + 1}"
+
   resource_group_name = var.resource_group_name
   location            = var.location
   size                = var.vm_size
