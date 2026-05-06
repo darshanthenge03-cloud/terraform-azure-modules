@@ -3,22 +3,20 @@ variable "app_group_name" {}
 variable "workspace_name" {}
 variable "resource_group_name" {}
 variable "location" {}
-
 variable "subnet_id" {}
 
 variable "session_host_count" {
   default = 1
 }
 
-variable "vm_name_prefix" {
-  default = "avd-vm"
-}
+variable "vm_name_prefix" {}
 
 variable "vm_size" {
   default = "Standard_D4s_v5"
 }
 
 variable "admin_username" {}
+
 variable "admin_password" {
   sensitive = true
 }
