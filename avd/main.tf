@@ -1,72 +1,4 @@
-########################################
-# AVD Host Pool
-########################################
-
 resource "azurerm_virtual_desktop_host_pool" "this" {
-  name                = var.host_pool_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  type                     = var.host_pool_type
-  load_balancer_type       = var.load_balancer_type
-  maximum_sessions_allowed = var.max_sessions
-
-  tags = var.tags
-}
-
-########################################
-# Application Group
-########################################
-
-resource "azurerm_virtual_desktop_application_group" "this" {
-  name                = var.app_group_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  type         = "Desktop"
-  host_pool_id = azurerm_virtual_desktop_host_pool.this.id
-
-  tags = var.tags
-}
-
-########################################
-# Workspace
-########################################
-
-resource "azurerm_virtual_desktop_workspace" "this" {
-  name                = var.workspace_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  tags = var.tags
-}
-
-########################################
-# Workspace Association
-########################################
-
-resource "azurerm_virtual_desktop_workspace_application_group_association" "this" {
-  workspace_id         = azurerm_virtual_desktop_workspace.this.id
-  application_group_id = azurerm_virtual_desktop_application_group.this.id
-}
-
-########################################
-# Registration Token
-########################################
-
-resource "azurerm_virtual_desktop_host_pool_registration_info" "this" {
-  hostpool_id     = azurerm_virtual_desktop_host_pool.this.id
-  expiration_date = timeadd(timestamp(), "24h")
-}
-
-########################################
-# NIC
-########################################
-
-resource "azurerm_network_interface" "nic" {
-  count               = var.session_host_count
-  name                = "${var.vm_name_prefix}-${count.index}-nic"
-  location            = var.location
   resource_group_name = var.resource_group_name
 
   ip_configuration {
@@ -76,13 +8,9 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-########################################
-# Session Host VM
-########################################
-
 resource "azurerm_windows_virtual_machine" "vm" {
   count               = var.session_host_count
-  name                = "${var.vm_name_prefix}-${count.index}"
+  name                = "${var.vm_name_prefix}-${format("%02d", count.index + 1)}"
   resource_group_name = var.resource_group_name
   location            = var.location
   size                = var.vm_size
@@ -108,10 +36,6 @@ resource "azurerm_windows_virtual_machine" "vm" {
 
   tags = var.tags
 }
-
-########################################
-# AVD Registration (Correct Method)
-########################################
 
 resource "azurerm_virtual_machine_extension" "avd_register" {
   count                = var.session_host_count
