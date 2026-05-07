@@ -3,13 +3,11 @@
 ########################################
 
 variable "resource_group_name" {
-  description = "Resource Group Name"
-  type        = string
+  type = string
 }
 
 variable "location" {
-  description = "Azure Region"
-  type        = string
+  type = string
 }
 
 ########################################
@@ -17,13 +15,11 @@ variable "location" {
 ########################################
 
 variable "subnet_id" {
-  description = "Subnet ID for Domain Controller"
-  type        = string
+  type = string
 }
 
 variable "private_ip_address" {
-  description = "Static Private IP for Domain Controller"
-  type        = string
+  type = string
 }
 
 ########################################
@@ -31,19 +27,16 @@ variable "private_ip_address" {
 ########################################
 
 variable "vm_name" {
-  description = "Virtual Machine Name"
-  type        = string
+  type = string
 }
 
 variable "computer_name" {
-  description = "Windows Computer Name"
-  type        = string
+  type = string
 }
 
 variable "vm_size" {
-  description = "Azure VM Size"
-  type        = string
-  default     = "Standard_D2s_v5"
+  type    = string
+  default = "Standard_D2s_v5"
 }
 
 ########################################
@@ -51,7 +44,32 @@ variable "vm_size" {
 ########################################
 
 variable "admin_username" {
-  description = "Local Administrator Username"
-  type        = string
+  type = string
 }
+
+variable "admin_password" {
+  type      = string
+  sensitive = true
+}
+
+########################################
+# Active Directory
+########################################
+
+variable "domain_name" {
+  type = string
+}
+
+variable "safe_mode_password" {
+  type      = string
+  sensitive = true
+}
+
+########################################
+# Tags
+########################################
+
+variable "tags" {
+  type    = map(string)
+  default = {}
 }
