@@ -75,6 +75,10 @@ resource "azurerm_virtual_machine_extension" "adds_install" {
 
   settings = jsonencode({
 
-    commandToExecute = "powershell -ExecutionPolicy Unrestricted Install-WindowsFeature AD-Domain-Services -IncludeManagementTools"
+    fileUris = [
+      "https://raw.githubusercontent.com/darshanthenge03-cloud/terraform-azure-modules/main/adds/scripts/install-adds.ps1"
+    ]
+
+    commandToExecute = "powershell -ExecutionPolicy Unrestricted -File install-adds.ps1"
   })
 }
