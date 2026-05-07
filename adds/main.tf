@@ -73,34 +73,8 @@ resource "azurerm_virtual_machine_extension" "adds_install" {
   type                 = "CustomScriptExtension"
   type_handler_version = "1.10"
 
-  depends_on = [
-    azurerm_windows_virtual_machine.dc
-  ]
-
   settings = jsonencode({
 
-    commandToExecute = <<COMMAND
-powershell -ExecutionPolicy Unrestricted -Command "
-
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools;
-
-Import-Module ADDSDeployment;
-
-$safeModePassword = ConvertTo-SecureString '${var.safe_mode_password}' -AsPlainText -Force;
-
-Install-ADDSForest `
--DomainName '${var.domain_name}' `
--SafeModeAdministratorPassword $safeModePassword `
--InstallDNS `
--Force `
--NoRebootOnCompletion;
-
-Restart-Computer -Force;
-
-"
-COMMAND
-
+    commandToExecute = "powershell -ExecutionPolicy Unrestricted Install-WindowsFeature AD-Domain-Services -IncludeManagementTools"
   })
-
-  tags = var.tags
 }
