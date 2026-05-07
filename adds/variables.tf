@@ -54,34 +54,4 @@ variable "admin_username" {
   description = "Local Administrator Username"
   type        = string
 }
-
-variable "admin_password" {
-  description = "Local Administrator Password"
-  type        = string
-  sensitive   = true
-}
-
-########################################
-# Active Directory
-########################################
-
-variable "domain_name" {
-  description = "Active Directory Domain Name"
-  type        = string
-}
-
-variable "safe_mode_password" {
-  description = "Directory Services Restore Mode Password"
-  type        = string
-  sensitive   = true
-}
-
-########################################
-# Tags
-########################################
-
-variable "tags" {
-  description = "Common Resource Tags"
-  type        = map(string)
-  default     = {}
 }
