@@ -133,7 +133,7 @@ resource "azurerm_virtual_machine_extension" "domain_join" {
     Name    = var.domain_name
     OUPath  = var.ou_path
     User    = "${var.domain_user}@${var.domain_name}"
-    Restart = "true"
+    Restart = "false"
     Options = "3"
   })
 
