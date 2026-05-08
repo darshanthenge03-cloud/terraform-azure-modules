@@ -132,7 +132,7 @@ resource "azurerm_virtual_machine_extension" "domain_join" {
   settings = jsonencode({
     Name    = var.domain_name
     OUPath  = var.ou_path
-    User    = "${var.domain_name}\\${var.domain_user}"
+    User    = "${var.domain_user}@${var.domain_name}"
     Restart = "true"
     Options = "3"
   })
@@ -147,15 +147,18 @@ resource "azurerm_virtual_machine_extension" "domain_join" {
 ########################################
 
 resource "azurerm_virtual_machine_extension" "avd_register" {
+
   count                = var.session_host_count
   name                 = "avd-register-${count.index}"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm[count.index].id
+
   publisher            = "Microsoft.Compute"
   type                 = "CustomScriptExtension"
   type_handler_version = "1.10"
 
   depends_on = [
-    azurerm_virtual_desktop_host_pool.this
+    azurerm_virtual_desktop_host_pool.this,
+    azurerm_virtual_machine_extension.domain_join
   ]
 
   settings = jsonencode({
