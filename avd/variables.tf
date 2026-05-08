@@ -37,3 +37,24 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
+
+########################################
+# Domain Join Variables
+########################################
+
+variable "domain_name" {
+  type = string
+}
+
+variable "domain_user" {
+  type = string
+}
+
+variable "domain_password" {
+  sensitive = true
+}
+
+variable "ou_path" {
+  type    = string
+  default = ""
+}
