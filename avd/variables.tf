@@ -28,6 +28,15 @@ variable "vm_size" {
 }
 
 ########################################
+# OS Disk
+########################################
+
+variable "os_disk_type" {
+  type    = string
+  default = "StandardSSD_LRS"
+}
+
+########################################
 # Credentials
 ########################################
 
@@ -53,7 +62,7 @@ variable "load_balancer_type" {
 
 variable "max_sessions" {
   type    = number
-  default = 10
+  default = 1
 }
 
 ########################################
