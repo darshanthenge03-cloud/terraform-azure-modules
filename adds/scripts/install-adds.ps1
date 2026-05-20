@@ -1,14 +1,16 @@
+param (
+    [string]$DomainName,
+    [string]$SafeModePassword
+)
+
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
 Import-Module ADDSDeployment
 
-$safeModePassword = ConvertTo-SecureString 'Network@1234' -AsPlainText -Force
+$safePassword = ConvertTo-SecureString $SafeModePassword -AsPlainText -Force
 
 Install-ADDSForest `
--DomainName "dalberg.local" `
--SafeModeAdministratorPassword $safeModePassword `
--InstallDNS `
--Force `
--NoRebootOnCompletion
-
-Restart-Computer -Force
+    -DomainName $DomainName `
+    -SafeModeAdministratorPassword $safePassword `
+    -InstallDNS `
+    -Force
