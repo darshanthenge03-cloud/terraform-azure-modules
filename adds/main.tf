@@ -77,25 +77,9 @@ resource "azurerm_virtual_machine_extension" "adds_install" {
     ]
 
     commandToExecute = <<COMMAND
-powershell -ExecutionPolicy Unrestricted -Command "
-$token='${azurerm_virtual_desktop_host_pool_registration_info.this.token}';
-
-Invoke-WebRequest `
-  -Uri https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv `
-  -OutFile C:\\AVD-Agent.msi;
-
-Invoke-WebRequest `
-  -Uri https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH `
-  -OutFile C:\\AVD-Bootloader.msi;
-
-Start-Process msiexec.exe `
-  -ArgumentList '/i C:\\AVD-Agent.msi /quiet REGISTRATIONTOKEN='$token `
-  -Wait;
-
-Start-Process msiexec.exe `
-  -ArgumentList '/i C:\\AVD-Bootloader.msi /quiet' `
-  -Wait;
-"
+powershell -ExecutionPolicy Unrestricted -File install-adds.ps1 `
+-DomainName "${var.domain_name}" `
+-SafeModePassword "${var.safe_mode_password}"
 COMMAND
 
   })
