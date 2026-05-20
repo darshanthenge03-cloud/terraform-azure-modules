@@ -3,14 +3,29 @@ param (
     [string]$SafeModePassword
 )
 
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+Start-Transcript -Path "C:\install-adds.log"
 
-Import-Module ADDSDeployment
+try {
 
-$safePassword = ConvertTo-SecureString $SafeModePassword -AsPlainText -Force
+    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
-Install-ADDSForest `
-    -DomainName $DomainName `
-    -SafeModeAdministratorPassword $safePassword `
-    -InstallDNS `
-    -Force
+    Import-Module ADDSDeployment
+
+    $safePassword = ConvertTo-SecureString $SafeModePassword -AsPlainText -Force
+
+    Install-ADDSForest `
+        -DomainName $DomainName `
+        -SafeModeAdministratorPassword $safePassword `
+        -InstallDNS `
+        -Force `
+        -NoRebootOnCompletion:$false
+
+}
+catch {
+
+    $_ | Out-File "C:\adds-error.log"
+
+    throw
+}
+
+Stop-Transcript
