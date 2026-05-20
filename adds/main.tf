@@ -76,11 +76,6 @@ resource "azurerm_virtual_machine_extension" "adds_install" {
       "https://raw.githubusercontent.com/darshanthenge03-cloud/terraform-azure-modules/main/adds/scripts/install-adds.ps1"
     ]
 
-    commandToExecute = <<COMMAND
-powershell -ExecutionPolicy Unrestricted -File install-adds.ps1 `
--DomainName "${var.domain_name}" `
--SafeModePassword "${var.safe_mode_password}"
-COMMAND
-
+    commandToExecute = "powershell -ExecutionPolicy Unrestricted -Command \"& { C:\\Packages\\Plugins\\Microsoft.Compute.CustomScriptExtension\\1.10.22\\Downloads\\0\\install-adds.ps1 -DomainName '${var.domain_name}' -SafeModePassword '${var.safe_mode_password}' }\""
   })
 }
