@@ -4,7 +4,7 @@ resource "azurerm_public_ip" "bastion" {
   resource_group_name = var.resource_group_name
 
   allocation_method = "Static"
-  sku               = "Standard"
+  sku               = "Basic"
 }
 
 resource "azurerm_bastion_host" "this" {
