@@ -25,8 +25,8 @@ resource "azurerm_network_interface" "dc_nic" {
 
 resource "azurerm_windows_virtual_machine" "dc" {
 
-  name                = var.vm_name
-  computer_name       = var.computer_name
+  name          = var.vm_name
+  computer_name = var.computer_name
 
   resource_group_name = var.resource_group_name
   location            = var.location
@@ -65,9 +65,9 @@ resource "azurerm_windows_virtual_machine" "dc" {
 
 resource "azurerm_virtual_machine_extension" "adds_install" {
 
-  name                 = "${var.vm_name}-adds-install"
+  name = "${var.vm_name}-adds-install"
 
-  virtual_machine_id   = azurerm_windows_virtual_machine.dc.id
+  virtual_machine_id = azurerm_windows_virtual_machine.dc.id
 
   publisher            = "Microsoft.Compute"
   type                 = "CustomScriptExtension"
@@ -79,6 +79,11 @@ resource "azurerm_virtual_machine_extension" "adds_install" {
       "https://raw.githubusercontent.com/darshanthenge03-cloud/terraform-azure-modules/main/adds/scripts/install-adds.ps1"
     ]
 
-    commandToExecute = "powershell -ExecutionPolicy Unrestricted -File install-adds.ps1"
+    commandToExecute = <<COMMAND
+powershell -ExecutionPolicy Unrestricted -File install-adds.ps1 `
+-DomainName "${var.domain_name}" `
+-SafeModePassword "${var.safe_mode_password}"
+COMMAND
+
   })
 }
