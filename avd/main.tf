@@ -70,7 +70,7 @@ resource "azurerm_virtual_desktop_host_pool_registration_info" "this" {
 
 resource "azurerm_network_interface" "nic" {
 
-  count               = var.session_host_count
+  count = var.session_host_count
 
   name                = "${var.vm_name_prefix}-${format("%02d", count.index + 1)}-nic"
   location            = var.location
@@ -146,7 +146,7 @@ resource "azurerm_virtual_machine_extension" "domain_join" {
     Name    = var.domain_name
     OUPath  = var.ou_path
     User    = "${var.domain_user}@${var.domain_name}"
-    Restart = "false"
+    Restart = "true"
     Options = "3"
   })
 
@@ -170,6 +170,10 @@ resource "azurerm_virtual_machine_extension" "avd_register" {
   publisher            = "Microsoft.Compute"
   type                 = "CustomScriptExtension"
   type_handler_version = "1.10"
+
+  provision_after_extensions = [
+    "domain-join-${count.index}"
+  ]
 
   depends_on = [
     azurerm_virtual_desktop_host_pool.this,
