@@ -178,29 +178,10 @@ resource "azurerm_virtual_machine_extension" "avd_register" {
 
   settings = jsonencode({
 
-    commandToExecute = <<COMMAND
-powershell -ExecutionPolicy Unrestricted -Command "
+    fileUris = [
+      "https://raw.githubusercontent.com/darshanthenge03-cloud/terraform-azure-modules/main/avd/scripts/install-avd.ps1"
+    ]
 
-$token='${azurerm_virtual_desktop_host_pool_registration_info.this.token}';
-
-Invoke-WebRequest `
--Uri https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv `
--OutFile C:\\AVD-Agent.msi;
-
-Invoke-WebRequest `
--Uri https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH `
--OutFile C:\\AVD-Bootloader.msi;
-
-Start-Process msiexec.exe `
--ArgumentList '/i C:\\AVD-Agent.msi /quiet REGISTRATIONTOKEN='$token `
--Wait;
-
-Start-Process msiexec.exe `
--ArgumentList '/i C:\\AVD-Bootloader.msi /quiet' `
--Wait;
-
-"
-COMMAND
-
+    commandToExecute = "powershell -ExecutionPolicy Unrestricted -File install-avd.ps1 -RegistrationToken '${azurerm_virtual_desktop_host_pool_registration_info.this.token}'"
   })
 }
