@@ -94,8 +94,7 @@ resource "azurerm_windows_virtual_machine" "vm" {
 
   count = var.session_host_count
 
-  name = "${var.vm_name_prefix}-${format("%02d", count.index + 1)}"
-
+  name          = "${var.vm_name_prefix}-${format("%02d", count.index + 1)}"
   computer_name = "avd${count.index + 1}"
 
   resource_group_name = var.resource_group_name
@@ -147,7 +146,7 @@ resource "azurerm_virtual_machine_extension" "domain_join" {
     Name    = var.domain_name
     OUPath  = var.ou_path
     User    = "${var.domain_user}@${var.domain_name}"
-    Restart = "true"
+    Restart = "false"
     Options = "3"
   })
 
