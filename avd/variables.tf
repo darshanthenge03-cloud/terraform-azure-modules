@@ -57,7 +57,7 @@ variable "host_pool_type" {
 
 variable "load_balancer_type" {
   type    = string
-  default = "DepthFirst"
+  default = "BreadthFirst"
 }
 
 variable "max_sessions" {
@@ -81,7 +81,7 @@ variable "image_offer" {
 
 variable "image_sku" {
   type    = string
-  default = "win11-22h2-avd"
+  default = "win11-24h2-avd"
 }
 
 variable "image_version" {
