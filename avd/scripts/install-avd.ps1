@@ -17,3 +17,5 @@ Start-Process msiexec.exe `
 Start-Process msiexec.exe `
 -Wait `
 -ArgumentList "/i C:\AVD-Bootloader.msi /quiet"
+
+Restart-Computer -Force
