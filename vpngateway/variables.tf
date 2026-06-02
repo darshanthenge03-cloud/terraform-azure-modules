@@ -15,6 +15,13 @@ variable "vpn_sku" {
   default = "VpnGw1AZ"
 }
 
+variable "zones" {
+description = "Availability Zones for VPN Gateway Public IP"
+type = list(string)
+
+default = ["1"]
+}
+
 variable "vpn_gateway_name" {
   type = string
 }
