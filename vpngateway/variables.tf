@@ -12,5 +12,18 @@ variable "gateway_subnet_id" {
 
 variable "vpn_sku" {
   type    = string
-  default = "VpnGw1"
+  default = "VpnGw1AZ"
+}
+
+variable "vpn_gateway_name" {
+  type = string
+}
+
+variable "public_ip_name" {
+  type = string
+}
+
+variable "tags" {
+  type    = map(string)
+  default = {}
 }
