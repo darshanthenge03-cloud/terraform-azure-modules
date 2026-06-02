@@ -16,10 +16,10 @@ variable "vpn_sku" {
 }
 
 variable "zones" {
-description = "Availability Zones for VPN Gateway Public IP"
-type = list(string)
+  description = "Availability Zones for VPN Gateway Public IP"
+  type = list(string)
 
-default = ["1"]
+  default = ["1"]
 }
 
 variable "vpn_gateway_name" {
