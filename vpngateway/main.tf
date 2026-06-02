@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "vpn" {
-  name                = "pip-vpn-gateway"
+  name                = var.public_ip_name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -10,7 +10,7 @@ resource "azurerm_public_ip" "vpn" {
 }
 
 resource "azurerm_virtual_network_gateway" "this" {
-  name                = "vnet-gateway"
+  name                = var.vpn_gateway_name
   location            = var.location
   resource_group_name = var.resource_group_name
 
