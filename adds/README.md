@@ -340,8 +340,16 @@ Ready for Domain Joins
 
 ---
 
-## Author
+<div align="center">
 
-Darshan Thenge
+### Module Author
 
-Cloud Engineering | Azure | AWS | Terraform
+**Darshan Thenge**
+
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github" height="42" />
+
+<br>
+
+Cloud Engineer | Azure • AWS • Terraform • PowerShell
+
+</div>
