@@ -332,52 +332,54 @@ NSG Associations
        ▼
 Ready for Workloads
 ```
-
-<div align="center">
-
-<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=600&size=24&duration=3000&pause=1000&center=true&vCenter=true&width=900&lines=Azure+Infrastructure+Automation;Terraform+Infrastructure+as+Code;PowerShell+Automation;Microsoft+365+and+Entra+ID;Enterprise+Cloud+Engineering" />
-
-</div>
-
 ---
 
 <div align="center">
 
-## 🚀 Built & Maintained By
+# 🚀 Built & Maintained By
 
-# Darshan Thenge
+## Darshan Thenge
 
-### Cloud Engineer | Azure • AWS • Terraform • PowerShell • Microsoft 365
+### Cloud Engineer
+
+*Specializing in Azure Infrastructure • Hybrid Identity • Microsoft 365 • Terraform Automation • Azure Networking • AWS*
 
 <br>
 
 <p>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="60" alt="Azure"/>
-  &nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" width="60" alt="Terraform"/>
-  &nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" width="60" alt="PowerShell"/>
-  &nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="60" alt="GitHub"/>
-  &nbsp;&nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="90" alt="AWS"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="90" alt="Azure"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" width="90" alt="Terraform"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" width="90" alt="PowerShell"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="90" alt="GitHub"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="120" alt="AWS"/>
 </p>
 
 <br>
 
-### ☁️ Core Expertise
+## ☁️ Cloud & Infrastructure Expertise
 
 Azure Infrastructure • AWS Cloud • Terraform IaC • PowerShell Automation • Microsoft 365 • Entra ID • Active Directory • Azure Networking • GitHub Actions • Cloud Security
 
 <br>
 
+<p>
 <img src="https://img.shields.io/badge/AZ--104-Certified-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
 <img src="https://img.shields.io/badge/AZ--700-Certified-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
 <img src="https://img.shields.io/badge/Terraform-Infrastructure_as_Code-844FBA?style=for-the-badge&logo=terraform&logoColor=white" />
+</p>
 
-<br><br>
+<br>
 
 ⭐ Building reusable Azure infrastructure modules and enterprise cloud solutions
 
 </div>
 
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=700&size=28&duration=3000&pause=1000&center=true&vCenter=true&width=900&lines=Azure+Infrastructure+Automation;Terraform+Infrastructure+as+Code;Hybrid+Identity+%26+Microsoft+365;Enterprise+Cloud+Engineering;Azure+Networking+%26+Security" />
+
+</div>
