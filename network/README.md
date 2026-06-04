@@ -338,14 +338,14 @@ Ready for Workloads
 
 ### 🚀 Module Author
 
-Darshan Thenge
+**Darshan Thenge**
 
-<img src="https://skillicons.dev/icons?i=terraform,powershell,aws,github" height="42" />
-
-<br>
-
-Azure • Terraform • PowerShell • Microsoft 365 • Entra ID
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github" height="42" />
 
 <br>
+
+Azure Infrastructure • Terraform • PowerShell • Microsoft 365
 
 </div>
+
+---
