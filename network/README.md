@@ -1,147 +1,362 @@
-# Azure Network – Terraform Module
+# Azure Network Module
 
-Reusable Terraform module to provision a Virtual Network (VNet) with public, private, bastion, and gateway subnets along with Network Security Groups (NSGs).
+## Overview
 
----
+This Terraform module deploys the foundational networking components required for Azure workloads.
 
-## 📌 Overview
+The module creates:
 
-This module creates:
+- Azure Virtual Network (VNet)
+- One or more Azure Subnets
+- One Network Security Group (NSG) per subnet
+- NSG Association to each subnet
+- Automatic exclusion of GatewaySubnet from NSG association (Azure requirement)
 
-* Virtual Network (VNet)
-* Public subnets (map-based)
-* Private subnets (map-based)
-* Azure Bastion subnet
-* Gateway subnet (for VPN Gateway)
-* Network Security Groups (NSG) for public and private subnets
-* NSG associations
+This module is intended for:
 
----
-
-## 🧱 Architecture
-
-* VNet acts as the network boundary
-* Subnets divide workloads:
-
-  * Public → Internet-facing resources
-  * Private → Internal workloads (VMs, AVD, DB)
-  * Bastion → Secure access
-  * Gateway → VPN connectivity
-* NSGs provide subnet-level security
+- Hub and Spoke Architectures
+- Landing Zones
+- Active Directory Deployments
+- Azure Virtual Desktop (AVD)
+- Application Hosting
+- Hybrid Connectivity
+- Infrastructure Foundations
 
 ---
 
-## ⚙️ Usage Example
+## Architecture
+
+```text
+┌─────────────────────────────────────────┐
+│ Azure Virtual Network                   │
+│                                         │
+│ ┌─────────────────────────────────────┐ │
+│ │ Public Subnet                       │ │
+│ │ NSG Attached                        │ │
+│ └─────────────────────────────────────┘ │
+│                                         │
+│ ┌─────────────────────────────────────┐ │
+│ │ Private Subnet                      │ │
+│ │ NSG Attached                        │ │
+│ └─────────────────────────────────────┘ │
+│                                         │
+│ ┌─────────────────────────────────────┐ │
+│ │ AD Subnet                           │ │
+│ │ NSG Attached                        │ │
+│ └─────────────────────────────────────┘ │
+│                                         │
+│ ┌─────────────────────────────────────┐ │
+│ │ GatewaySubnet                       │ │
+│ │ No NSG Attached                     │ │
+│ └─────────────────────────────────────┘ │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## Resources Created
+
+| Resource Type | Resource |
+|--------------|----------|
+| Virtual Network | Azure VNet |
+| Subnets | Azure Subnets |
+| Network Security Groups | One per subnet |
+| NSG Associations | Associated to all subnets except GatewaySubnet |
+
+---
+
+## Features
+
+- Supports multiple subnets using a map variable
+- Automatically creates NSGs
+- Automatically associates NSGs to subnets
+- Automatically excludes GatewaySubnet from NSG association
+- Supports custom naming conventions
+- Supports reusable enterprise deployments
+- Supports Hub-Spoke architectures
+
+---
+
+## Usage
+
+The following example creates a VNet with Public, Private, Active Directory, and Gateway subnets.
 
 ```hcl
+########################################
+# Network Module
+########################################
+
 module "network" {
+
   source = "git::https://github.com/darshanthenge03-cloud/terraform-azure-modules.git//network"
 
-  resource_group_name = "rg-network-dev"
-  location            = "Central India"
+  resource_group_name = azurerm_resource_group.network.name
+  location            = local.location
 
-  vnet_cidr = "10.0.0.0/16"
+  ########################################
+  # Virtual Network
+  ########################################
 
-  public_subnets = {
-    "public-subnet-1" = "10.0.1.0/24"
+  vnet_name = "${local.prefix}-vnet"
+
+  vnet_cidr = "172.20.0.0/22"
+
+  ########################################
+  # Subnets
+  ########################################
+
+  subnets = {
+
+    ########################################
+    # Public Subnet
+    ########################################
+
+    "${local.prefix}-snet-public" = "172.20.0.0/24"
+
+    ########################################
+    # Private Subnet
+    ########################################
+
+    "${local.prefix}-snet-private" = "172.20.1.0/24"
+
+    ########################################
+    # Active Directory Subnet
+    ########################################
+
+    "${local.prefix}-snet-ad" = "172.20.2.0/24"
+
+    ########################################
+    # VPN Gateway Subnet
+    ########################################
+
+    "GatewaySubnet" = "172.20.3.0/26"
   }
 
-  private_subnets = {
-    "app-subnet" = "10.0.2.0/24"
-    "db-subnet"  = "10.0.3.0/24"
-  }
-
-  bastion_subnet_cidr = "10.0.4.0/27"
-  gateway_subnet_cidr = "10.0.5.0/27"
-
-  tags = {
-    environment = "dev"
-    owner       = "platform-team"
-  }
+  tags = local.tags
 }
 ```
 
 ---
 
-## 🔗 Using with AVD Module
-
-To deploy Azure Virtual Desktop (AVD), pass a subnet from this module:
+## Example Customer Deployment
 
 ```hcl
-module "avd" {
-  source = "../modules/avd"
+locals {
 
-  subnet_id = module.network.private_subnet_ids["app-subnet"]
+  client_name = "motwane"
+  environment = "prod"
 
-  host_pool_name      = "avd-hp-dev"
-  app_group_name      = "avd-dag-dev"
-  workspace_name      = "avd-ws-dev"
-  resource_group_name = "rg-avd-dev"
-  location            = "Central India"
+  location      = "Central India"
+  location_code = "cin"
 
-  session_host_count = 2
-  admin_username     = "azureuser"
-  admin_password     = "Password123!"
+  prefix = "${local.client_name}-${local.environment}-${local.location_code}"
+
+  tags = {
+    client      = local.client_name
+    environment = local.environment
+    managed_by  = "terraform"
+  }
+}
+
+resource "azurerm_resource_group" "network" {
+
+  name     = "${local.prefix}-rg-network"
+  location = local.location
+
+  tags = local.tags
+}
+
+module "network" {
+
+  source = "git::https://github.com/darshanthenge03-cloud/terraform-azure-modules.git//network"
+
+  resource_group_name = azurerm_resource_group.network.name
+  location            = local.location
+
+  vnet_name = "${local.prefix}-vnet"
+
+  vnet_cidr = "172.20.0.0/22"
+
+  subnets = {
+
+    "${local.prefix}-snet-public"  = "172.20.0.0/24"
+
+    "${local.prefix}-snet-private" = "172.20.1.0/24"
+
+    "${local.prefix}-snet-ad"      = "172.20.2.0/24"
+
+    "GatewaySubnet"                = "172.20.3.0/26"
+  }
+
+  tags = local.tags
 }
 ```
 
-👉 Here:
+---
 
-* `private_subnet_ids["app-subnet"]` = where AVD session hosts will be deployed
+## Input Variables
+
+| Name | Description | Type | Required | Default |
+|--------|------------|--------|----------|----------|
+| resource_group_name | Resource Group Name | string | Yes | N/A |
+| location | Azure Region | string | Yes | N/A |
+| vnet_name | Virtual Network Name | string | Yes | N/A |
+| vnet_cidr | VNet Address Space | string | Yes | N/A |
+| subnets | Map of subnet names and CIDRs | map(string) | Yes | N/A |
+| tags | Resource Tags | map(string) | No | {} |
 
 ---
 
-## 📥 Inputs
+## Outputs
 
-| Name                | Type        | Description          |
-| ------------------- | ----------- | -------------------- |
-| resource_group_name | string      | Resource group name  |
-| location            | string      | Azure region         |
-| vnet_cidr           | string      | VNet CIDR block      |
-| public_subnets      | map(string) | Public subnet CIDRs  |
-| private_subnets     | map(string) | Private subnet CIDRs |
-| bastion_subnet_cidr | string      | Bastion subnet CIDR  |
-| gateway_subnet_cidr | string      | Gateway subnet CIDR  |
-| tags                | map(string) | Resource tags        |
+| Output | Description |
+|----------|------------|
+| vnet_id | Virtual Network Resource ID |
+| subnet_ids | Map of Subnet Names and IDs |
 
 ---
 
-## 📤 Outputs
+## Example Outputs
 
-| Name               | Description               |
-| ------------------ | ------------------------- |
-| vnet_id            | ID of the VNet            |
-| public_subnet_ids  | Map of public subnet IDs  |
-| private_subnet_ids | Map of private subnet IDs |
-| bastion_subnet_id  | Bastion subnet ID         |
-| gateway_subnet_id  | Gateway subnet ID         |
-| public_nsg_id      | Public NSG ID             |
-| private_nsg_id     | Private NSG ID            |
+```hcl
+vnet_id = "/subscriptions/xxxx/resourceGroups/motwane-prod-cin-rg-network/providers/Microsoft.Network/virtualNetworks/motwane-prod-cin-vnet"
+```
 
----
-
-## 🔐 Security Notes
-
-* NSGs are applied at subnet level
-* Add inbound/outbound rules as per workload requirements
-* For AVD, ensure outbound HTTPS (443) is allowed
+```hcl
+subnet_ids = {
+  "motwane-prod-cin-snet-public"  = "/subscriptions/.../subnets/motwane-prod-cin-snet-public"
+  "motwane-prod-cin-snet-private" = "/subscriptions/.../subnets/motwane-prod-cin-snet-private"
+  "motwane-prod-cin-snet-ad"      = "/subscriptions/.../subnets/motwane-prod-cin-snet-ad"
+  "GatewaySubnet"                 = "/subscriptions/.../subnets/GatewaySubnet"
+}
+```
 
 ---
 
-## 🧠 Design Principles
+## Subnet Naming Recommendations
 
-* Modular and reusable across environments
-* Separation of network and workload layers
-* Supports enterprise patterns (hub-spoke, shared services)
-* Scalable subnet design using maps
+| Subnet Type | Example |
+|------------|----------|
+| Public | motwane-prod-cin-snet-public |
+| Private | motwane-prod-cin-snet-private |
+| Active Directory | motwane-prod-cin-snet-ad |
+| Azure Virtual Desktop | motwane-prod-cin-snet-avd |
+| Application | motwane-prod-cin-snet-app |
+| Database | motwane-prod-cin-snet-db |
+| Gateway | GatewaySubnet |
+
+---
+
+## Important Notes
+
+### GatewaySubnet
+
+The subnet used for Azure VPN Gateway must be named:
+
+```text
+GatewaySubnet
+```
+
+Azure requires this exact name.
+
+The module automatically skips NSG association for GatewaySubnet because Azure VPN Gateway deployments do not support NSG attachment.
 
 ---
 
-## 🚀 Best Practices
+### NSG Creation
 
-* Use private subnets for application workloads (AVD, VMs, databases)
-* Avoid placing compute in public subnets
-* Use Bastion for secure VM access
-* Extend with route tables and firewall for production environments
+The module automatically creates:
+
+```text
+nsg-subnet-name
+```
+
+Example:
+
+```text
+nsg-motwane-prod-cin-snet-public
+nsg-motwane-prod-cin-snet-private
+nsg-motwane-prod-cin-snet-ad
+```
 
 ---
+
+### NSG Rules
+
+This module only creates NSGs.
+
+No NSG security rules are deployed by default.
+
+Security rules should be managed separately according to application requirements.
+
+---
+
+## Terraform Requirements
+
+| Name | Version |
+|--------|---------|
+| Terraform | >= 1.5 |
+| AzureRM Provider | >= 3.0 |
+
+---
+
+## Module Structure
+
+```text
+network/
+├── main.tf
+├── variables.tf
+├── outputs.tf
+└── README.md
+```
+
+---
+
+## Example Deployment Flow
+
+```text
+Resource Group
+       │
+       ▼
+Virtual Network
+       │
+       ▼
+Subnets
+       │
+       ▼
+Network Security Groups
+       │
+       ▼
+NSG Associations
+       │
+       ▼
+Ready for Workloads
+```
+
+---
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+# Darshan Thenge
+
+### Cloud Engineer | Azure | AWS | Terraform | DevOps
+
+![Azure](https://img.shields.io/badge/Azure-Cloud-0078D4?logo=microsoftazure&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazonaws&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-844FBA?logo=terraform&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-Automation-5391FE?logo=powershell&logoColor=white)
+![Microsoft 365](https://img.shields.io/badge/Microsoft_365-Administrator-5E5E5E?logo=microsoft&logoColor=white)
+
+![Entra ID](https://img.shields.io/badge/Entra_ID-Identity-0078D4)
+![Active Directory](https://img.shields.io/badge/Active_Directory-Hybrid-003366)
+![Networking](https://img.shields.io/badge/Networking-Azure_Networking-0099CC)
+![DevOps](https://img.shields.io/badge/DevOps-CI%2FCD-0A66C2)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Automation-2088FF?logo=githubactions&logoColor=white)
+
+Building reusable Azure Infrastructure Modules with Terraform
+
+</div>
