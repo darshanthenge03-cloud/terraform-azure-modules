@@ -336,7 +336,7 @@ Ready for Workloads
 
 <div align="center">
 
-### ⚡Module Author
+### Module Author
 
 **Darshan Thenge**
 
