@@ -109,3 +109,19 @@ v1.0.0,
 v1.1.0
 
 Customer repositories should pin module versions to ensure stability.
+
+---
+
+<div align="center">
+
+### Module Author
+
+**Darshan Thenge**
+
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github" height="42" />
+
+<br>
+
+Cloud Engineer | Azure • AWS • Terraform • PowerShell
+
+</div>
