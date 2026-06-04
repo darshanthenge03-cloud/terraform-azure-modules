@@ -2,30 +2,42 @@
 
 # ☁️ Terraform Azure Modules
 
-### Production-Ready Terraform Modules for Microsoft Azure
-
-<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=600&size=24&duration=2500&pause=1000&center=true&vCenter=true&width=850&lines=Networking;Identity;Azure+Virtual+Desktop;Security;Backup+%26+Recovery;Hybrid+Connectivity;Infrastructure+Automation" />
+<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=700&size=32&duration=2500&pause=1000&center=true&vCenter=true&width=1100&lines=Production-Ready+Azure+Infrastructure;Terraform+Infrastructure+as+Code;Azure+Virtual+Desktop;Hybrid+Identity;Cloud+Networking;Backup+and+Disaster+Recovery" />
 
 <br>
 
-<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,github" />
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,vscode" />
+
+<br><br>
+
+<img src="https://img.shields.io/badge/AZ--305-Solutions%20Architect-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://img.shields.io/badge/SC--300-Identity-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://img.shields.io/badge/AZ--700-Networking-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://img.shields.io/badge/AZ--104-Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
 
 </div>
 
 ---
 
-## Modules
+## Overview
+
+A collection of reusable Terraform modules for Microsoft Azure.
+
+The modules in this repository are derived from real-world deployments covering networking, identity, virtual desktop infrastructure, hybrid connectivity, security, backup, disaster recovery, and application hosting.
+
+---
+
+## Module Collection
 
 <table>
 <tr>
-
 <td align="center" width="25%">
 
 ### 📡 Network
 
 Virtual Networks
 Subnets
-NSGs
+Network Security Groups
 
 </td>
 
@@ -35,7 +47,7 @@ NSGs
 
 Active Directory
 DNS
-Domain Controller
+Domain Controllers
 
 </td>
 
@@ -58,17 +70,14 @@ Point-to-Site VPN
 Hybrid Connectivity
 
 </td>
-
 </tr>
 
 <tr>
-
 <td align="center">
 
 ### 🛡️ Bastion
 
 Secure Administration
-Remote Access
 
 </td>
 
@@ -78,7 +87,6 @@ Remote Access
 
 Secrets
 Certificates
-Keys
 
 </td>
 
@@ -99,59 +107,52 @@ Recovery Services
 Backup Policies
 
 </td>
-
 </tr>
 
 <tr>
-
 <td align="center">
 
-### 💻 Virtual Machine
+### 💻 Virtual Machines
 
-Windows Server
-Infrastructure Services
+Windows Infrastructure
 
 </td>
 
 <td align="center">
 
-### 🌍 Front Door CDN
+### 🌍 Front Door
 
-Global Routing
-Application Delivery
+Global Delivery
 
 </td>
 
 <td align="center">
 
-### 📄 Static Web App
+### 📄 Static Web Apps
 
 Frontend Hosting
-GitHub Integration
 
 </td>
 
 <td align="center">
 
-### 🚀 Future Modules
+### 🚀 More Coming
 
 Continuous Expansion
 
 </td>
-
 </tr>
-
 </table>
 
 ---
 
-## Azure Domains Covered
+## Coverage
 
 ```text
 Networking
 ├── Virtual Networks
 ├── Subnets
-├── Network Security Groups
+├── NSGs
 ├── VPN Gateway
 └── Hybrid Connectivity
 
@@ -171,10 +172,9 @@ Compute
 ├── Virtual Machines
 └── Azure Virtual Desktop
 
-Storage & Recovery
+Storage
 ├── Storage Accounts
-├── Azure Backup
-└── Azure Site Recovery
+└── Backup
 
 Automation
 ├── Terraform
@@ -185,49 +185,47 @@ Automation
 
 ---
 
-## Reference Architectures
-
-```text
-Hub & Spoke Networking
-
-Hybrid Identity
-
-Azure Virtual Desktop
-
-Site-to-Site VPN
-
-Disaster Recovery
-
-Secure Remote Administration
-
-Infrastructure as Code
-```
-
----
-
-## Certifications
+## Technologies
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/AZ--305-Solutions_Architect-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/SC--300-Identity-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/AZ--700-Networking-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-
-<img src="https://img.shields.io/badge/AZ--104-Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,linux,vscode" />
 
 </div>
 
 ---
 
+## Repository Structure
+
+```text
+terraform-azure-modules
+│
+├── adds
+├── avd
+├── backup
+├── bastion
+├── frontdoorcdn
+├── keyvault
+├── network
+├── staticwebapp
+├── storageaccount
+├── vm
+└── vpngateway
+```
+
+---
+
 <div align="center">
 
-### ⚡ Created & Maintained By
+### ⚡ Repository Author
 
 **Darshan Thenge**
 
 <img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github" height="42" />
+
+<br>
+
+Cloud Engineer | Azure • AWS • Terraform • PowerShell
 
 </div>
 
