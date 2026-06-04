@@ -338,3 +338,46 @@ Ready for Workloads
 <img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=600&size=24&duration=3000&pause=1000&center=true&vCenter=true&width=900&lines=Azure+Infrastructure+Automation;Terraform+Infrastructure+as+Code;PowerShell+Automation;Microsoft+365+and+Entra+ID;Enterprise+Cloud+Engineering" />
 
 </div>
+
+---
+
+<div align="center">
+
+## 🚀 Built & Maintained By
+
+# Darshan Thenge
+
+### Cloud Engineer | Azure • AWS • Terraform • PowerShell • Microsoft 365
+
+<br>
+
+<p>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="60" alt="Azure"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" width="60" alt="Terraform"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" width="60" alt="PowerShell"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="60" alt="GitHub"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="90" alt="AWS"/>
+</p>
+
+<br>
+
+### ☁️ Core Expertise
+
+Azure Infrastructure • AWS Cloud • Terraform IaC • PowerShell Automation • Microsoft 365 • Entra ID • Active Directory • Azure Networking • GitHub Actions • Cloud Security
+
+<br>
+
+<img src="https://img.shields.io/badge/AZ--104-Certified-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://img.shields.io/badge/AZ--700-Certified-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://img.shields.io/badge/Terraform-Infrastructure_as_Code-844FBA?style=for-the-badge&logo=terraform&logoColor=white" />
+
+<br><br>
+
+⭐ Building reusable Azure infrastructure modules and enterprise cloud solutions
+
+</div>
+
