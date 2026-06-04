@@ -336,7 +336,7 @@ Ready for Workloads
 
 <div align="center">
 
-### 🚀 Module Author
+### Module Author
 
 **Darshan Thenge**
 
@@ -344,7 +344,7 @@ Ready for Workloads
 
 <br>
 
-Azure Infrastructure • Terraform • PowerShell • Microsoft 365
+Cloud Engineer | Azure • AWS • Terraform • PowerShell
 
 </div>
 
