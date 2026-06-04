@@ -1,19 +1,12 @@
 <div align="center">
 
-# ☁️ Terraform Azure Modules
+# Terraform Azure Modules
 
-<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=700&size=32&duration=2500&pause=1000&center=true&vCenter=true&width=1100&lines=Production-Ready+Azure+Infrastructure;Terraform+Infrastructure+as+Code;Azure+Virtual+Desktop;Hybrid+Identity;Cloud+Networking;Backup+and+Disaster+Recovery" />
+Production-ready Terraform modules for Microsoft Azure.
 
-<br>
+Reusable infrastructure components designed to accelerate Azure deployments through Infrastructure as Code (IaC), modular architecture, and standardized deployment patterns.
 
-<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,vscode" />
-
-<br><br>
-
-<img src="https://img.shields.io/badge/AZ--305-Solutions%20Architect-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
-<img src="https://img.shields.io/badge/SC--300-Identity-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
-<img src="https://img.shields.io/badge/AZ--700-Networking-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
-<img src="https://img.shields.io/badge/AZ--104-Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github" />
 
 </div>
 
@@ -21,177 +14,76 @@
 
 ## Overview
 
-A collection of reusable Terraform modules for Microsoft Azure.
+This repository contains reusable Terraform modules built from real-world Azure deployments.
 
-The modules in this repository are derived from real-world deployments covering networking, identity, virtual desktop infrastructure, hybrid connectivity, security, backup, disaster recovery, and application hosting.
+The modules cover core Azure infrastructure domains including:
 
----
+- Networking
+- Identity
+- Security
+- Azure Virtual Desktop
+- Hybrid Connectivity
+- Storage
+- Backup & Recovery
+- Application Delivery
 
-## Module Collection
+Each module is designed to be:
 
-<table>
-<tr>
-<td align="center" width="25%">
-
-### 📡 Network
-
-Virtual Networks
-Subnets
-Network Security Groups
-
-</td>
-
-<td align="center" width="25%">
-
-### 🔐 ADDS
-
-Active Directory
-DNS
-Domain Controllers
-
-</td>
-
-<td align="center" width="25%">
-
-### 🖥️ AVD
-
-Host Pools
-Workspaces
-Session Hosts
-
-</td>
-
-<td align="center" width="25%">
-
-### 🌐 VPN Gateway
-
-Site-to-Site VPN
-Point-to-Site VPN
-Hybrid Connectivity
-
-</td>
-</tr>
-
-<tr>
-<td align="center">
-
-### 🛡️ Bastion
-
-Secure Administration
-
-</td>
-
-<td align="center">
-
-### 🔑 Key Vault
-
-Secrets
-Certificates
-
-</td>
-
-<td align="center">
-
-### 💾 Storage
-
-Blob Storage
-File Shares
-
-</td>
-
-<td align="center">
-
-### 🔄 Backup
-
-Recovery Services
-Backup Policies
-
-</td>
-</tr>
-
-<tr>
-<td align="center">
-
-### 💻 Virtual Machines
-
-Windows Infrastructure
-
-</td>
-
-<td align="center">
-
-### 🌍 Front Door
-
-Global Delivery
-
-</td>
-
-<td align="center">
-
-### 📄 Static Web Apps
-
-Frontend Hosting
-
-</td>
-
-<td align="center">
-
-### 🚀 More Coming
-
-Continuous Expansion
-
-</td>
-</tr>
-</table>
+- Reusable
+- Modular
+- Environment Agnostic
+- Production Ready
+- Easy to Integrate
 
 ---
 
-## Coverage
+## Module Catalog
 
-```text
-Networking
-├── Virtual Networks
-├── Subnets
-├── NSGs
-├── VPN Gateway
-└── Hybrid Connectivity
+| Module | Description |
+|----------|----------|
+| Network | Virtual Networks, Subnets, Network Security Groups |
+| ADDS | Active Directory Domain Services Deployment |
+| AVD | Azure Virtual Desktop Infrastructure |
+| VPN Gateway | Site-to-Site & Point-to-Site Connectivity |
+| Bastion | Secure Administrative Access |
+| Key Vault | Secrets, Keys & Certificate Management |
+| Storage Account | Azure Storage Services |
+| Backup | Azure Backup & Recovery Services |
+| Virtual Machine | Windows Virtual Machine Deployments |
+| Front Door CDN | Global Application Delivery |
+| Static Web App | Frontend Application Hosting |
 
-Identity
-├── Active Directory
-├── Entra ID
-├── Azure AD Connect
-└── Hybrid Identity
+---
 
-Security
-├── Bastion
-├── Key Vault
-├── RBAC
-└── Conditional Access
+## Quick Start
 
-Compute
-├── Virtual Machines
-└── Azure Virtual Desktop
+Example deployment:
 
-Storage
-├── Storage Accounts
-└── Backup
+```hcl
+module "network" {
 
-Automation
-├── Terraform
-├── PowerShell
-├── Azure CLI
-└── GitHub Actions
+  source = "git::https://github.com/darshanthenge03-cloud/terraform-azure-modules.git//network"
+
+  resource_group_name = azurerm_resource_group.network.name
+
+  location = local.location
+
+  vnet_name = "${local.prefix}-vnet"
+
+  vnet_cidr = "10.0.0.0/16"
+
+  subnets = {
+
+    "${local.prefix}-snet-app" = "10.0.1.0/24"
+
+    "GatewaySubnet" = "10.0.255.0/27"
+  }
+
+  tags = local.tags
+}
 ```
 
----
-
-## Technologies
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,linux,vscode" />
-
-</div>
+Refer to individual module documentation for deployment examples and configuration options.
 
 ---
 
@@ -215,18 +107,52 @@ terraform-azure-modules
 
 ---
 
-<div align="center">
+## Design Principles
 
-### ⚡ Repository Author
+### Reusability
+
+Modules are designed to be consumed across multiple environments and customer deployments.
+
+### Modularity
+
+Each infrastructure component is deployed independently and can be integrated into larger solutions.
+
+### Standardization
+
+Consistent naming conventions, resource organization, and deployment patterns are maintained across all modules.
+
+### Infrastructure as Code
+
+All deployments are automated using Terraform and follow Infrastructure as Code best practices.
+
+### Production Readiness
+
+Modules are built from real-world Azure implementations and deployment scenarios.
+
+---
+
+## Certifications
+
+<p align="left">
+
+<img src="https://img.shields.io/badge/AZ--305-Solutions_Architect-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/SC--300-Identity_Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/AZ--700-Network_Engineer-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/AZ--104-Azure_Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+</p>
+
+---
+
+## Maintainer
 
 **Darshan Thenge**
 
-<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github" height="42" />
-
-<br>
-
-Cloud Engineer | Azure • AWS • Terraform • PowerShell
-
-</div>
+Cloud Engineer focused on Azure Infrastructure, Terraform Automation, Identity, Networking, Azure Virtual Desktop, and Hybrid Cloud Solutions.
 
 ---
+
+⭐ If you find this repository useful, consider starring the project.
