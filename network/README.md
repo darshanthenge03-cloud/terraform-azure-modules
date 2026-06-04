@@ -333,11 +333,8 @@ NSG Associations
 Ready for Workloads
 ```
 
----
 <div align="center">
 
-Built with ❤️ using Azure, Terraform & PowerShell
-
-Maintained by Darshan Thenge
+<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=600&size=24&duration=3000&pause=1000&center=true&vCenter=true&width=900&lines=Azure+Infrastructure+Automation;Terraform+Infrastructure+as+Code;PowerShell+Automation;Microsoft+365+and+Entra+ID;Enterprise+Cloud+Engineering" />
 
 </div>
