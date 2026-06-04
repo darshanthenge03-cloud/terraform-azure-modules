@@ -334,29 +334,10 @@ Ready for Workloads
 ```
 
 ---
-
 <div align="center">
 
-## 🚀 Built & Maintained By
+Built with ❤️ using Azure, Terraform & PowerShell
 
-### Darshan Thenge
-
-Cloud Engineer specializing in:
-
-☁️ Azure Infrastructure  
-☁️ AWS Cloud Services  
-🏗️ Terraform Infrastructure as Code  
-⚡ PowerShell Automation  
-🔐 Microsoft 365 & Entra ID  
-🌐 Azure Networking & Hybrid Connectivity  
-🔄 GitHub Actions & CI/CD  
-🛡️ Cloud Security & Governance
-
-![Azure](https://img.shields.io/badge/Azure-0078D4?logo=microsoftazure&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-FF9900?logo=amazonaws&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-844FBA?logo=terraform&logoColor=white)
-![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?logo=powershell&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
-![Microsoft 365](https://img.shields.io/badge/Microsoft_365-5E5E5E?logo=microsoft&logoColor=white)
+Maintained by Darshan Thenge
 
 </div>
