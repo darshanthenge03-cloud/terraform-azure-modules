@@ -1,120 +1,335 @@
-# Terraform Azure Platform Modules
+<div align="center">
 
-This repository contains reusable, production-grade Terraform modules for deploying secure Azure infrastructure across multiple customers and environments.
+# ☁️ Terraform Azure Modules
 
-The goal of this repository is to provide a standardized, secure, and scalable platform layer that can be consumed by customer-specific Terraform repositories.
+<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=700&size=30&duration=2500&pause=1000&center=true&vCenter=true&width=1000&lines=Azure+Infrastructure+Automation;Terraform+Infrastructure+as+Code;Azure+Virtual+Desktop;Hybrid+Identity;Cloud+Networking;Disaster+Recovery;Enterprise+Cloud+Engineering" />
 
+<br>
 
-## Design Principles
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,vscode" />
 
-- Platform-first architecture
-- Reusable and versioned modules
-- Secure-by-default configurations
-- Clear separation of concerns
-- No environment-specific logic
-- No direct deployments from this repository
+<br><br>
 
+<img src="https://img.shields.io/badge/AZ--305-Solutions_Architect-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+<img src="https://img.shields.io/badge/SC--300-Identity_Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+<img src="https://img.shields.io/badge/AZ--700-Network_Engineer-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+<img src="https://img.shields.io/badge/AZ--104-Azure_Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
 
-## Repository Structure
+</div>
 
-terraform-azure-modules/
-├── network/
-├── vm/
-├── keyvault/
-├── bastion/
-├── backup/
-└── README.md
+---
 
+# 👨‍💻 About Me
 
-Each folder represents a standalone Terraform module with a single responsibility.
+I'm **Darshan Thenge**, a Cloud Engineer passionate about building and automating enterprise cloud environments.
 
+My focus areas include:
 
-## Available Modules
+🔹 Azure Infrastructure
 
-### Network Module
-Creates foundational networking components:
-- Virtual Network (VNet)
-- Public and private subnets
-- Azure Bastion subnet
-- Network Security Groups (NSGs)
-- NSG to subnet associations
+🔹 Terraform Infrastructure as Code (IaC)
 
-This module provides the base networking layer required for all workloads.
+🔹 Azure Virtual Desktop (AVD)
 
+🔹 Hybrid Identity & Active Directory
 
-### VM Module
-Creates Azure Virtual Machines with multi-OS support:
-- Linux and Windows support
-- Parameterized OS images
-- No public IP addresses
-- System-assigned Managed Identity enabled by default
-- Secure authentication defaults
+🔹 Azure Networking & Connectivity
 
-The VM module represents a compute capability, not a specific operating system.
+🔹 PowerShell Automation
 
+🔹 Disaster Recovery & Business Continuity
 
-### Key Vault Module
-Creates Azure Key Vault for centralized secret management:
-- Secure secret storage
-- Identity-based access
-- No hardcoded credentials
-- Designed to work with Managed Identities
+🔹 Microsoft 365 & Entra ID
 
-Secrets are accessed securely without embedding credentials in code.
+🔹 AWS Cloud Services
 
+This repository contains reusable Terraform modules built from real-world Azure implementations and automation projects.
 
-### Bastion Module
-Creates Azure Bastion for secure administrative access:
-- Bastion host with required public IP
-- No inbound ports to virtual machines
-- SSH/RDP access through Azure portal only
+---
 
-This module eliminates the need for public VM exposure.
+# 🚀 What I Build
 
+```text
+Infrastructure as Code
+├── Terraform Modules
+├── PowerShell Automation
+├── GitHub Actions CI/CD
+└── Azure CLI Automation
 
-### Backup Module
-Creates standardized Azure Backup configuration:
-- Recovery Services Vault
-- Daily VM backup policy
-- 5-day instant snapshot restore enabled
-- VM protection attachment
+Identity
+├── Active Directory
+├── Domain Controllers
+├── Entra ID
+├── Hybrid Identity
+└── SAML SSO
 
-Backup configuration is enforced at the platform level.
+Azure Infrastructure
+├── Networking
+├── Security
+├── Storage
+├── Compute
+├── Backup
+└── Disaster Recovery
 
+End User Computing
+└── Azure Virtual Desktop
+```
 
-## Security Model
+---
 
-- Virtual machines have no public IPs
-- Access is restricted to Azure Bastion
-- Managed Identity used for Azure service access
-- Secrets stored centrally in Key Vault
-- Backups enabled by default with instant restore
+# 📦 Terraform Module Collection
 
+<table>
+<tr>
+<td align="center">
 
-## Usage
+### 📡 Network
 
-This repository is not deployed directly.
+Virtual Networks
 
-It is consumed by customer-specific Terraform repositories that:
-- Configure environments
-- Wire modules together
-- Handle CI/CD and state management
+Subnets
 
+NSGs
 
-## Versioning Strategy
+</td>
 
-Modules are versioned using Git tags:
+<td align="center">
 
-v1.0.0,
-v1.1.0
+### 🔐 ADDS
 
-Customer repositories should pin module versions to ensure stability.
+Domain Controller
+
+DNS
+
+Active Directory
+
+</td>
+
+<td align="center">
+
+### 🖥️ AVD
+
+Host Pools
+
+Workspaces
+
+Session Hosts
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### 🌐 VPN Gateway
+
+Site-to-Site VPN
+
+Point-to-Site VPN
+
+Hybrid Connectivity
+
+</td>
+
+<td align="center">
+
+### 🛡️ Bastion
+
+Secure Access
+
+Remote Administration
+
+</td>
+
+<td align="center">
+
+### 🔑 Key Vault
+
+Secrets
+
+Certificates
+
+Keys
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### 💾 Storage
+
+Blob Storage
+
+File Shares
+
+</td>
+
+<td align="center">
+
+### 🔄 Backup
+
+Recovery Services
+
+Backup Policies
+
+</td>
+
+<td align="center">
+
+### 💻 Virtual Machines
+
+Windows Servers
+
+Infrastructure Services
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### 🌍 Front Door CDN
+
+Global Delivery
+
+Web Optimization
+
+</td>
+
+<td align="center">
+
+### 📄 Static Web Apps
+
+Frontend Hosting
+
+CI/CD
+
+</td>
+
+<td align="center">
+
+### 🚀 More Coming
+
+New Modules
+
+Continuous Improvement
+
+</td>
+
+</tr>
+
+</table>
+
+---
+
+# 🛠️ Technology Stack
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,linux,vscode" />
+
+</div>
+
+<br>
+
+| Category               | Technologies                                 |
+| ---------------------- | -------------------------------------------- |
+| Cloud                  | Azure, AWS                                   |
+| Infrastructure as Code | Terraform, ARM Templates                     |
+| Automation             | PowerShell, Azure CLI, Bash                  |
+| CI/CD                  | GitHub Actions, GitLab CI/CD                 |
+| Identity               | Active Directory, Entra ID, Azure AD Connect |
+| Networking             | VPN Gateway, VNet Peering, NSG, DNS          |
+| Security               | RBAC, Conditional Access, MFA                |
+| Virtual Desktop        | Azure Virtual Desktop, FSLogix               |
+| Microsoft 365          | Exchange Online, SharePoint, Teams           |
+| Monitoring             | Azure Monitor, Site24x7, CloudWatch          |
+| Backup & DR            | Azure Backup, ASR                            |
+
+---
+
+# 🏗️ Architecture Domains Covered
+
+```text
+Cloud Infrastructure
+│
+├── Networking
+│   ├── Virtual Networks
+│   ├── VPN Gateway
+│   ├── NSGs
+│   └── Hybrid Connectivity
+│
+├── Identity
+│   ├── Active Directory
+│   ├── Entra ID
+│   ├── Azure AD Connect
+│   └── Hybrid Identity
+│
+├── Security
+│   ├── Bastion
+│   ├── Key Vault
+│   ├── MFA
+│   └── RBAC
+│
+├── Compute
+│   ├── Virtual Machines
+│   └── Azure Virtual Desktop
+│
+├── Storage
+│   ├── Storage Accounts
+│   └── Backup
+│
+└── Automation
+    ├── Terraform
+    ├── PowerShell
+    ├── GitHub Actions
+    └── Azure CLI
+```
+
+---
+
+# 🎯 Repository Goals
+
+✅ Reusable Terraform Modules
+
+✅ Infrastructure as Code
+
+✅ Cloud Automation
+
+✅ Standardized Azure Deployments
+
+✅ Enterprise Architecture Patterns
+
+✅ Production-Ready Infrastructure
+
+✅ Continuous Learning & Improvement
+
+---
+
+# 📚 Module Documentation
+
+Each module includes:
+
+* Overview
+* Architecture
+* Deployment Example
+* Input Variables
+* Outputs
+* Notes & Considerations
+* Production Guidance
 
 ---
 
 <div align="center">
 
-### Module Author
+## ⚡ Repository Author
 
 **Darshan Thenge**
 
@@ -125,3 +340,5 @@ Customer repositories should pin module versions to ensure stability.
 Cloud Engineer | Azure • AWS • Terraform • PowerShell
 
 </div>
+
+---
