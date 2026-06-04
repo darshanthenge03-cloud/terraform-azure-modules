@@ -2,118 +2,60 @@
 
 # ☁️ Terraform Azure Modules
 
-<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=700&size=30&duration=2500&pause=1000&center=true&vCenter=true&width=1000&lines=Azure+Infrastructure+Automation;Terraform+Infrastructure+as+Code;Azure+Virtual+Desktop;Hybrid+Identity;Cloud+Networking;Disaster+Recovery;Enterprise+Cloud+Engineering" />
+### Production-Ready Terraform Modules for Microsoft Azure
+
+<img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=600&size=24&duration=2500&pause=1000&center=true&vCenter=true&width=850&lines=Networking;Identity;Azure+Virtual+Desktop;Security;Backup+%26+Recovery;Hybrid+Connectivity;Infrastructure+Automation" />
 
 <br>
 
-<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,vscode" />
-
-<br><br>
-
-<img src="https://img.shields.io/badge/AZ--305-Solutions_Architect-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-<img src="https://img.shields.io/badge/SC--300-Identity_Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-<img src="https://img.shields.io/badge/AZ--700-Network_Engineer-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-<img src="https://img.shields.io/badge/AZ--104-Azure_Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,github" />
 
 </div>
 
 ---
 
-# 👨‍💻 About Me
-
-I'm **Darshan Thenge**, a Cloud Engineer passionate about building and automating enterprise cloud environments.
-
-My focus areas include:
-
-🔹 Azure Infrastructure
-
-🔹 Terraform Infrastructure as Code (IaC)
-
-🔹 Azure Virtual Desktop (AVD)
-
-🔹 Hybrid Identity & Active Directory
-
-🔹 Azure Networking & Connectivity
-
-🔹 PowerShell Automation
-
-🔹 Disaster Recovery & Business Continuity
-
-🔹 Microsoft 365 & Entra ID
-
-🔹 AWS Cloud Services
-
-This repository contains reusable Terraform modules built from real-world Azure implementations and automation projects.
-
----
-
-# 🚀 What I Build
-
-```text
-Infrastructure as Code
-├── Terraform Modules
-├── PowerShell Automation
-├── GitHub Actions CI/CD
-└── Azure CLI Automation
-
-Identity
-├── Active Directory
-├── Domain Controllers
-├── Entra ID
-├── Hybrid Identity
-└── SAML SSO
-
-Azure Infrastructure
-├── Networking
-├── Security
-├── Storage
-├── Compute
-├── Backup
-└── Disaster Recovery
-
-End User Computing
-└── Azure Virtual Desktop
-```
-
----
-
-# 📦 Terraform Module Collection
+## Modules
 
 <table>
 <tr>
-<td align="center">
+
+<td align="center" width="25%">
 
 ### 📡 Network
 
 Virtual Networks
-
 Subnets
-
 NSGs
 
 </td>
 
-<td align="center">
+<td align="center" width="25%">
 
 ### 🔐 ADDS
 
-Domain Controller
-
-DNS
-
 Active Directory
+DNS
+Domain Controller
 
 </td>
 
-<td align="center">
+<td align="center" width="25%">
 
 ### 🖥️ AVD
 
 Host Pools
-
 Workspaces
-
 Session Hosts
+
+</td>
+
+<td align="center" width="25%">
+
+### 🌐 VPN Gateway
+
+Site-to-Site VPN
+Point-to-Site VPN
+Hybrid Connectivity
 
 </td>
 
@@ -123,23 +65,10 @@ Session Hosts
 
 <td align="center">
 
-### 🌐 VPN Gateway
-
-Site-to-Site VPN
-
-Point-to-Site VPN
-
-Hybrid Connectivity
-
-</td>
-
-<td align="center">
-
 ### 🛡️ Bastion
 
-Secure Access
-
-Remote Administration
+Secure Administration
+Remote Access
 
 </td>
 
@@ -148,23 +77,16 @@ Remote Administration
 ### 🔑 Key Vault
 
 Secrets
-
 Certificates
-
 Keys
 
 </td>
-
-</tr>
-
-<tr>
 
 <td align="center">
 
 ### 💾 Storage
 
 Blob Storage
-
 File Shares
 
 </td>
@@ -174,18 +96,7 @@ File Shares
 ### 🔄 Backup
 
 Recovery Services
-
 Backup Policies
-
-</td>
-
-<td align="center">
-
-### 💻 Virtual Machines
-
-Windows Servers
-
-Infrastructure Services
 
 </td>
 
@@ -195,31 +106,36 @@ Infrastructure Services
 
 <td align="center">
 
+### 💻 Virtual Machine
+
+Windows Server
+Infrastructure Services
+
+</td>
+
+<td align="center">
+
 ### 🌍 Front Door CDN
 
-Global Delivery
-
-Web Optimization
+Global Routing
+Application Delivery
 
 </td>
 
 <td align="center">
 
-### 📄 Static Web Apps
+### 📄 Static Web App
 
 Frontend Hosting
-
-CI/CD
+GitHub Integration
 
 </td>
 
 <td align="center">
 
-### 🚀 More Coming
+### 🚀 Future Modules
 
-New Modules
-
-Continuous Improvement
+Continuous Expansion
 
 </td>
 
@@ -229,115 +145,89 @@ Continuous Improvement
 
 ---
 
-# 🛠️ Technology Stack
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github,git,linux,vscode" />
-
-</div>
-
-<br>
-
-| Category               | Technologies                                 |
-| ---------------------- | -------------------------------------------- |
-| Cloud                  | Azure, AWS                                   |
-| Infrastructure as Code | Terraform, ARM Templates                     |
-| Automation             | PowerShell, Azure CLI, Bash                  |
-| CI/CD                  | GitHub Actions, GitLab CI/CD                 |
-| Identity               | Active Directory, Entra ID, Azure AD Connect |
-| Networking             | VPN Gateway, VNet Peering, NSG, DNS          |
-| Security               | RBAC, Conditional Access, MFA                |
-| Virtual Desktop        | Azure Virtual Desktop, FSLogix               |
-| Microsoft 365          | Exchange Online, SharePoint, Teams           |
-| Monitoring             | Azure Monitor, Site24x7, CloudWatch          |
-| Backup & DR            | Azure Backup, ASR                            |
-
----
-
-# 🏗️ Architecture Domains Covered
+## Azure Domains Covered
 
 ```text
-Cloud Infrastructure
-│
-├── Networking
-│   ├── Virtual Networks
-│   ├── VPN Gateway
-│   ├── NSGs
-│   └── Hybrid Connectivity
-│
-├── Identity
-│   ├── Active Directory
-│   ├── Entra ID
-│   ├── Azure AD Connect
-│   └── Hybrid Identity
-│
-├── Security
-│   ├── Bastion
-│   ├── Key Vault
-│   ├── MFA
-│   └── RBAC
-│
-├── Compute
-│   ├── Virtual Machines
-│   └── Azure Virtual Desktop
-│
-├── Storage
-│   ├── Storage Accounts
-│   └── Backup
-│
-└── Automation
-    ├── Terraform
-    ├── PowerShell
-    ├── GitHub Actions
-    └── Azure CLI
+Networking
+├── Virtual Networks
+├── Subnets
+├── Network Security Groups
+├── VPN Gateway
+└── Hybrid Connectivity
+
+Identity
+├── Active Directory
+├── Entra ID
+├── Azure AD Connect
+└── Hybrid Identity
+
+Security
+├── Bastion
+├── Key Vault
+├── RBAC
+└── Conditional Access
+
+Compute
+├── Virtual Machines
+└── Azure Virtual Desktop
+
+Storage & Recovery
+├── Storage Accounts
+├── Azure Backup
+└── Azure Site Recovery
+
+Automation
+├── Terraform
+├── PowerShell
+├── Azure CLI
+└── GitHub Actions
 ```
 
 ---
 
-# 🎯 Repository Goals
+## Reference Architectures
 
-✅ Reusable Terraform Modules
+```text
+Hub & Spoke Networking
 
-✅ Infrastructure as Code
+Hybrid Identity
 
-✅ Cloud Automation
+Azure Virtual Desktop
 
-✅ Standardized Azure Deployments
+Site-to-Site VPN
 
-✅ Enterprise Architecture Patterns
+Disaster Recovery
 
-✅ Production-Ready Infrastructure
+Secure Remote Administration
 
-✅ Continuous Learning & Improvement
+Infrastructure as Code
+```
 
 ---
 
-# 📚 Module Documentation
+## Certifications
 
-Each module includes:
+<div align="center">
 
-* Overview
-* Architecture
-* Deployment Example
-* Input Variables
-* Outputs
-* Notes & Considerations
-* Production Guidance
+<img src="https://img.shields.io/badge/AZ--305-Solutions_Architect-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/SC--300-Identity-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/AZ--700-Networking-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/AZ--104-Administrator-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
+
+</div>
 
 ---
 
 <div align="center">
 
-## ⚡ Repository Author
+### ⚡ Created & Maintained By
 
 **Darshan Thenge**
 
 <img src="https://skillicons.dev/icons?i=azure,terraform,powershell,aws,github" height="42" />
-
-<br>
-
-Cloud Engineer | Azure • AWS • Terraform • PowerShell
 
 </div>
 
