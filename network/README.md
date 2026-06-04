@@ -335,28 +335,28 @@ Ready for Workloads
 
 ---
 
----
-
-## 👨‍💻 Author
-
 <div align="center">
 
-# Darshan Thenge
+## 🚀 Built & Maintained By
 
-### Cloud Engineer | Azure | AWS | Terraform | DevOps
+### Darshan Thenge
 
-![Azure](https://img.shields.io/badge/Azure-Cloud-0078D4?logo=microsoftazure&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazonaws&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-IaC-844FBA?logo=terraform&logoColor=white)
-![PowerShell](https://img.shields.io/badge/PowerShell-Automation-5391FE?logo=powershell&logoColor=white)
-![Microsoft 365](https://img.shields.io/badge/Microsoft_365-Administrator-5E5E5E?logo=microsoft&logoColor=white)
+Cloud Engineer specializing in:
 
-![Entra ID](https://img.shields.io/badge/Entra_ID-Identity-0078D4)
-![Active Directory](https://img.shields.io/badge/Active_Directory-Hybrid-003366)
-![Networking](https://img.shields.io/badge/Networking-Azure_Networking-0099CC)
-![DevOps](https://img.shields.io/badge/DevOps-CI%2FCD-0A66C2)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Automation-2088FF?logo=githubactions&logoColor=white)
+☁️ Azure Infrastructure  
+☁️ AWS Cloud Services  
+🏗️ Terraform Infrastructure as Code  
+⚡ PowerShell Automation  
+🔐 Microsoft 365 & Entra ID  
+🌐 Azure Networking & Hybrid Connectivity  
+🔄 GitHub Actions & CI/CD  
+🛡️ Cloud Security & Governance
 
-Building reusable Azure Infrastructure Modules with Terraform
+![Azure](https://img.shields.io/badge/Azure-0078D4?logo=microsoftazure&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?logo=amazonaws&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-844FBA?logo=terraform&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?logo=powershell&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
+![Microsoft 365](https://img.shields.io/badge/Microsoft_365-5E5E5E?logo=microsoft&logoColor=white)
 
 </div>
