@@ -334,20 +334,21 @@ Ready for Workloads
 ```
 ---
 
-## Module Information
+<div align="center">
 
-| Item                   | Value                              |
-| ---------------------- | ---------------------------------- |
-| Maintainer             | Darshan Thenge                     |
-| Platform               | Microsoft Azure                    |
-| IaC Tool               | Terraform                          |
-| Module Type            | Reusable Infrastructure Module     |
-| Supported Environments | Development, Test, UAT, Production |
+### ⚡ Crafted by Darshan Thenge
 
-### Expertise
+<img src="https://skillicons.dev/icons?i=terraform,powershell,aws,github" height="42" />
 
-Azure Infrastructure • Terraform • PowerShell • Microsoft 365 • Entra ID • Active Directory • Azure Networking • Cloud Security
+<br>
+
+Azure • Terraform • PowerShell • Microsoft 365 • Entra ID
+
+<br>
+
+<sub>Part of the terraform-azure-modules project</sub>
+
+</div>
 
 ---
-
 
